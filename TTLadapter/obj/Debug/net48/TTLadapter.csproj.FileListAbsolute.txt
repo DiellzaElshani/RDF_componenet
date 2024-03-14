@@ -8,3 +8,7 @@ C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\obj\Debug\net48\T
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\obj\Debug\net48\TTLadapter.sourcelink.json
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\obj\Debug\net48\TTLadapter.gha
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\obj\Debug\net48\TTLadapter.pdb
+C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\bin\Debug\net48\Resources\TTLadapter_icon_1.png
+C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\bin\Debug\net48\Resources\TTLadapter_icon_2.png
+C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\obj\Debug\net48\TTLadapter.Properties.Resources.resources
+C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\obj\Debug\net48\TTLadapter.csproj.GenerateResource.cache

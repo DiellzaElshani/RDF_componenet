@@ -1,12 +1,29 @@
-using Grasshopper;
+﻿using Grasshopper;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TTLadapter
 {
+
+//████████╗████████╗██╗                                    
+//╚══██╔══╝╚══██╔══╝██║                                    
+//   ██║      ██║   ██║                                    
+//   ██║      ██║   ██║                                    
+//   ██║      ██║   ███████╗                               
+//   ╚═╝      ╚═╝   ╚══════╝                               
+                                                         
+// █████╗ ██████╗  █████╗ ██████╗ ████████╗███████╗██████╗ 
+//██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔════╝██╔══██╗
+//███████║██║  ██║███████║██████╔╝   ██║   █████╗  ██████╔╝
+//██╔══██║██║  ██║██╔══██║██╔═══╝    ██║   ██╔══╝  ██╔══██╗
+//██║  ██║██████╔╝██║  ██║██║        ██║   ███████╗██║  ██║
+//╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝        ╚═╝   ╚══════╝╚═╝  ╚═╝
+                                                         
+                                                                                                         
 	public class TTLadapterComponent : GH_Component
 	{
 		/// <summary>
@@ -42,7 +59,7 @@ namespace TTLadapter
 
 
 			// TODO: run button 
-			pManager.AddBooleanParameter("Run TTL adapter", "run", "Set to true to run the TTL adapter", GH_ParamAccess.item, false);
+			pManager.AddBooleanParameter("Run TTL adapter", "Run", "Set to true to run the TTL adapter", GH_ParamAccess.item, false);
 
 			// TODO: what is RDF input type? --> "Variable Object"?
 			// TODO: what is the GH_ input type?
@@ -123,52 +140,39 @@ namespace TTLadapter
 			var rdf = 0;
 			var ttl = 0;
 
+			// Load values from inputs into those variables
 			// DA "DATA ACCESS" retrieving data from the input and pushs to output
 			// index 0 == first value of RegisterInputParams
 			//assign run
-			DA.GetData(0, ref run);
+			if(!DA.GetData(0, ref run)) return;
 			// assign rdf data
-			DA.GetData(1, ref rdf);
+			if(!DA.GetData(1, ref rdf)) return;
 
 			// check if "run" triggered
 			if (run)  
-			{				
+			{
 
 				// TODO: PROCESSING RDF DATA TO CONVERT INTO TTL FORMAT AND MAKE A HTTPS POST
+
+
+
+
+				// Check if rdf is valid
+				if (!DA.GetData(1, ref rdf)) // replace with other error statement
+					{
+					this.AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "No valid RDF input!");
+					DA.SetData(0, ttl);
+					return;
+				}
+
 
 				// Output
 				DA.SetData(0, ttl);
 
 			}
 
-			
-
 		}
 
-		Curve CreateSpiral(Plane plane, double r0, double r1, Int32 turns)
-		{
-			Line l0 = new Line(plane.Origin + r0 * plane.XAxis, plane.Origin + r1 * plane.XAxis);
-			Line l1 = new Line(plane.Origin - r0 * plane.XAxis, plane.Origin - r1 * plane.XAxis);
-
-			Point3d[] p0;
-			Point3d[] p1;
-
-			l0.ToNurbsCurve().DivideByCount(turns, true, out p0);
-			l1.ToNurbsCurve().DivideByCount(turns, true, out p1);
-
-			PolyCurve spiral = new PolyCurve();
-
-			for (int i = 0; i < p0.Length - 1; i++)
-			{
-				Arc arc0 = new Arc(p0[i], plane.YAxis, p1[i + 1]);
-				Arc arc1 = new Arc(p1[i + 1], -plane.YAxis, p0[i + 1]);
-
-				spiral.Append(arc0);
-				spiral.Append(arc1);
-			}
-
-			return spiral;
-		}
 
 		/// <summary>
 		/// The Exposure property controls where in the panel a component icon 
@@ -184,7 +188,8 @@ namespace TTLadapter
 		/// You can add image files to your project resources and access them like this:
 		/// return Resources.IconForThisComponent;
 		/// </summary>
-		protected override System.Drawing.Bitmap Icon => null;
+		protected override System.Drawing.Bitmap Icon => Properties.Resources.TTLadapter_icon_1;
+
 
 		/// <summary>
 		/// Each component must have a unique Guid to identify it. 

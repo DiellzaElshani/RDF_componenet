@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|solutionrelative:ttladaptercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\ttladapter\\ttladapter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|solutionrelative:ttladapter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\ttladapter\\ttladapterinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|solutionrelative:ttladapterinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -22,24 +18,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TTLadapter.csproj",
-              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapter.csproj",
-              "RelativeDocumentMoniker": "TTLadapter.csproj",
-              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapter.csproj",
-              "RelativeToolTip": "TTLadapter.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-03-10T22:12:57.439Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -49,14 +32,14 @@
               "RelativeDocumentMoniker": "TTLadapterComponent.cs",
               "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterComponent.cs",
               "RelativeToolTip": "TTLadapterComponent.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAKMAAAA7AAAA",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAAABkAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-10T20:57:17.56Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "TTLadapterInfo.cs",
               "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterInfo.cs",
               "RelativeDocumentMoniker": "TTLadapterInfo.cs",

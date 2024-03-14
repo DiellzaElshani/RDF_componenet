@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Description of TTLadapter")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+dbf01c7dda950091e2f01730a14f95a2087e65f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+77ade1347736fe29d02cb8643089acb751f5ec83")]
 [assembly: System.Reflection.AssemblyProductAttribute("TTLadapter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TTLadapter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
