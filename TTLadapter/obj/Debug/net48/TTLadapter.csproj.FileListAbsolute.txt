@@ -12,3 +12,5 @@ C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\bin\Debug\net48\R
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\bin\Debug\net48\Resources\TTLadapter_icon_2.png
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\obj\Debug\net48\TTLadapter.Properties.Resources.resources
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\obj\Debug\net48\TTLadapter.csproj.GenerateResource.cache
+C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\bin\Debug\net48\geometry3.dll
+C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\TTLadapter\obj\Debug\net48\TTLadapter.csproj.Up2Date

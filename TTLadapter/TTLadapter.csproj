@@ -13,6 +13,12 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Reference Include="geometry3">
+      <HintPath>lib\geometry3.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -35,5 +41,14 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <PropertyGroup Condition="$(Configuration) == 'Debug' AND $([MSBuild]::IsOSPlatform(Windows))">
+    <StartProgram>C:\Program Files\Rhino 7\System\Rhino.exe</StartProgram>
+      <StartArguments>/nosplash/runscript="_-RunScript (
+        Set GH = Rhino.GetPlugInObject(""Grasshopper"")
+        Call GH.OpenDocument(""C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\rdf_input_example.gh"")
+      )"</StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
 
 </Project>

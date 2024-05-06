@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\ttladapter\\test\\test_asyncomps\\test_asyncforloop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|solutionrelative:test\\test_asyncomps\\test_asyncforloop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\ttladapter\\test\\test_asyncomps\\workerinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|solutionrelative:test\\test_asyncomps\\workerinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\ttladapter\\test\\test_asyncomps\\gh_asynccomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|solutionrelative:test\\test_asyncomps\\gh_asynccomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\ttladapter\\ttladaptercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|solutionrelative:ttladaptercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,25 +39,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "test_AsyncForLoop.cs",
+              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\test\\test_AsynComps\\test_AsyncForLoop.cs",
+              "RelativeDocumentMoniker": "test\\test_AsynComps\\test_AsyncForLoop.cs",
+              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\test\\test_AsynComps\\test_AsyncForLoop.cs",
+              "RelativeToolTip": "test\\test_AsynComps\\test_AsyncForLoop.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAE8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T23:10:17.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GH_AsyncComponent.cs",
+              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\test\\test_AsynComps\\GH_AsyncComponent.cs",
+              "RelativeDocumentMoniker": "test\\test_AsynComps\\GH_AsyncComponent.cs",
+              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\test\\test_AsynComps\\GH_AsyncComponent.cs",
+              "RelativeToolTip": "test\\test_AsynComps\\GH_AsyncComponent.cs",
+              "ViewState": "AQIAANAAAAAAAAAAAAASwOUAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T23:08:59.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WorkerInstance.cs",
+              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\test\\test_AsynComps\\WorkerInstance.cs",
+              "RelativeDocumentMoniker": "test\\test_AsynComps\\WorkerInstance.cs",
+              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\test\\test_AsynComps\\WorkerInstance.cs",
+              "RelativeToolTip": "test\\test_AsynComps\\WorkerInstance.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T23:08:59.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "TTLadapterComponent.cs",
               "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterComponent.cs",
               "RelativeDocumentMoniker": "TTLadapterComponent.cs",
               "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterComponent.cs",
               "RelativeToolTip": "TTLadapterComponent.cs",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAAABkAAAA5AAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAAD0AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-10T20:57:17.56Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "TTLadapterInfo.cs",
               "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterInfo.cs",
               "RelativeDocumentMoniker": "TTLadapterInfo.cs",
               "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterInfo.cs",
               "RelativeToolTip": "TTLadapterInfo.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-10T20:57:25.079Z",
               "EditorCaption": ""

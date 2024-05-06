@@ -9,23 +9,19 @@ using System.Security.Cryptography.X509Certificates;
 namespace TTLadapter
 {
 
-//████████╗████████╗██╗                                    
-//╚══██╔══╝╚══██╔══╝██║                                    
-//   ██║      ██║   ██║                                    
-//   ██║      ██║   ██║                                    
-//   ██║      ██║   ███████╗                               
-//   ╚═╝      ╚═╝   ╚══════╝                               
-                                                         
-// █████╗ ██████╗  █████╗ ██████╗ ████████╗███████╗██████╗ 
-//██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔════╝██╔══██╗
-//███████║██║  ██║███████║██████╔╝   ██║   █████╗  ██████╔╝
-//██╔══██║██║  ██║██╔══██║██╔═══╝    ██║   ██╔══╝  ██╔══██╗
-//██║  ██║██████╔╝██║  ██║██║        ██║   ███████╗██║  ██║
-//╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝        ╚═╝   ╚══════╝╚═╝  ╚═╝
+//	████████╗████████╗██╗          █████╗ ██████╗  █████╗ ██████╗ ████████╗███████╗██████╗ 
+//	╚══██╔══╝╚══██╔══╝██║         ██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔════╝██╔══██╗
+//	   ██║      ██║   ██║         ███████║██║  ██║███████║██████╔╝   ██║   █████╗  ██████╔╝
+//	   ██║      ██║   ██║         ██╔══██║██║  ██║██╔══██║██╔═══╝    ██║   ██╔══╝  ██╔══██╗
+//	   ██║      ██║   ███████╗    ██║  ██║██████╔╝██║  ██║██║        ██║   ███████╗██║  ██║
+//	   ╚═╝      ╚═╝   ╚══════╝    ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝        ╚═╝   ╚══════╝╚═╝  ╚═╝                                              
                                                          
                                                                                                          
 	public class TTLadapterComponent : GH_Component
 	{
+		// Persisten field
+
+
 		/// <summary>
 		/// Each implementation of GH_Component must provide a public 
 		/// constructor without any arguments.
@@ -36,7 +32,7 @@ namespace TTLadapter
 		public TTLadapterComponent()
 		  : base("TTLadapter", "TTLadapt",
 			"Send RDF data from grasshopper to the web application.",
-			"BHoM", "TTLadapter")
+			"BHoM", "RDF_component")
 		{
 			// Adding custom code when the code is created.
 		}
@@ -63,7 +59,7 @@ namespace TTLadapter
 
 			// TODO: what is RDF input type? --> "Variable Object"?
 			// TODO: what is the GH_ input type?
-			pManager.AddScriptVariableParameter("RDF", "RDF", "RDF as Variable Object", GH_ParamAccess.list);
+			pManager.AddGenericParameter("RDF", "RDF", "RDF as Variable Object", GH_ParamAccess.list);
 			
 
 			// If you want to change properties of certain parameters, 
