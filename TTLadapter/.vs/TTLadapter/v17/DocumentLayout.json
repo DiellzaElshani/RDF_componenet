@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|solutionrelative:ttladaptercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\ttladapter\\httpserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|solutionrelative:httpserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\ttladapter\\ttladapterinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4357F735-186A-4CEB-81F5-1A3A194ACFA8}|TTLadapter.csproj|solutionrelative:ttladapterinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,11 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HttpServer.cs",
+              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\HttpServer.cs",
+              "RelativeDocumentMoniker": "HttpServer.cs",
+              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\HttpServer.cs",
+              "RelativeToolTip": "HttpServer.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB4AAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T18:56:11.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TTLadapterInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterInfo.cs",
+              "RelativeDocumentMoniker": "TTLadapterInfo.cs",
+              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterInfo.cs",
+              "RelativeToolTip": "TTLadapterInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T14:01:21.281Z"
             },
             {
               "$type": "Document",
@@ -32,22 +68,9 @@
               "RelativeDocumentMoniker": "TTLadapterComponent.cs",
               "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterComponent.cs",
               "RelativeToolTip": "TTLadapterComponent.cs",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAAABkAAAA5AAAA",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAAACwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T20:57:17.56Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TTLadapterInfo.cs",
-              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterInfo.cs",
-              "RelativeDocumentMoniker": "TTLadapterInfo.cs",
-              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\TTLadapter\\TTLadapterInfo.cs",
-              "RelativeToolTip": "TTLadapterInfo.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T20:57:25.079Z",
+              "WhenOpened": "2024-07-22T13:05:20.522Z",
               "EditorCaption": ""
             }
           ]

@@ -9,7 +9,8 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Grasshopper" Version="7.13.21348.13001" IncludeAssets="compile;build" />
+    <PackageReference Include="Grasshopper" Version="7.7.21160.5001" IncludeAssets="compile;build" />
+	<!--<PackageReference Include="System.Net.Http" Version="4.3.4" />-->
   </ItemGroup>
   
   <ItemGroup>
@@ -35,5 +36,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <!-- <PropertyGroup Condition="$(Configuration) == 'Debug' AND $([MSBuild]::IsOSPlatform(Windows))">
+    <StartProgram>C:\Program Files\Rhino 7\System\Rhino.exe</StartProgram>
+      <StartArguments>/runscript="_-RunScript (
+        Set GH = Rhino.GetPlugInObject(""Grasshopper"")
+        Call GH.OpenDocument
+        (""C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\rdf_input_example.gh"")
+      )"</StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup> -->
 
 </Project>
