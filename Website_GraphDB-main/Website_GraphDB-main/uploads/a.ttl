@@ -1,8 +1,0 @@
-@prefix ex: <http://example.org/> .
-
-ex:subject1
-    ex:predicate "This is a sample object" .
-ex:subject2
-    ex:predicate "This is a sample object2" .
-ex:subject3
-    ex:predicate "This is a sample object3" .
