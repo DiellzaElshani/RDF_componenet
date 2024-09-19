@@ -1,5 +1,7 @@
-﻿using Amazon.ElasticBeanstalk.Model;
+﻿using Amazon.AutoScaling.Model;
+using Amazon.ElasticBeanstalk.Model;
 using Amazon.ElasticLoadBalancing.Model;
+using Amazon.Runtime.Internal;
 using Grasshopper;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
@@ -33,6 +35,8 @@ namespace GraphWebsite
 
 	public class GraphWebsiteComponent : GH_Component
 	{
+		private LocalWebServer _server;
+		private Process _nodeProcess;
 
 		/// <summary>
 		/// Each implementation of GH_Component must provide a public 
@@ -91,18 +95,172 @@ namespace GraphWebsite
 			// First, we need to retrieve all data from the input parameters.
 			// We'll start by declaring variables and assigning them starting values.
 
-			bool open = false;
-			bool run = false;
-			int port = 8000;
-			HttpListener listener = null;
+			bool openBrowser = false;
+			bool runServer = false;
+			int port = 8080;
+
+			// Get the Grasshopper libraries path
+			string grasshopperLibrariesPath = PathHelper.GetGrasshopperLibrariesPath();
+
+			// Construct paths relative to the Grasshopper libraries path
+			string scriptPath = Path.Combine(grasshopperLibrariesPath, "server2.js");
+			string installDependenciesPath = Path.Combine(grasshopperLibrariesPath, "setup-node.ps1");
+			//string installDependenciesPath = Path.Combine(grasshopperLibrariesPath, "install-dependencies.ps1");
 
 
 			// Then we need to access the input parameters individually. 
 			// When data cannot be extracted from a parameter, we should abort this method.
 
-
 			// assign open browser
-			if (!DA.GetData("Open", ref open)) return;
+			if (!DA.GetData("Open", ref openBrowser)) return;
+
+			// assign run server
+			if (!DA.GetData("Run", ref runServer)) return;
+
+
+			// We're set to create the website now. To keep the size of the SolveInstance() method small, 
+			// The actual functionality will be in a different method:
+
+			// Open the website in the browser
+			if (openBrowser)
+			{
+				try
+				{
+					Process.Start($"http://localhost:{port}");
+					Process.Start("http://localhost:3001");
+					//DA.SetData("Status", $"powerShellPath: {powerShellPath}");
+				}
+				catch (Exception e)
+				{
+					DA.SetData("Status", e.Message);
+					return;
+				}
+			}
+
+			// Start the web server if 'run' is true
+			if (runServer)
+			{
+				if (_nodeProcess == null || _nodeProcess.HasExited)
+				{
+					try
+					{
+
+						// First, install dependencies using the PowerShell script
+						string installOutput = CommandLine.RunCommand($"powershell.exe -ExecutionPolicy Bypass -File \"{installDependenciesPath}\"", grasshopperLibrariesPath);
+						DA.SetData("Status", "Dependencies installed:\n" + installOutput);
+
+						//// Then, run the Node.js server script
+						//string startServerOutput = CommandLine.RunCommand($"node \"{scriptPath}\"", grasshopperLibrariesPath);
+						//DA.SetData("Status", "Server started:\n" + startServerOutput);
+
+						//// Prepare the PowerShell process start info
+						//var powerShellStartInfo = new System.Diagnostics.ProcessStartInfo
+						//{
+						//	FileName = "powershell.exe",
+						//	Arguments = $"-ExecutionPolicy Bypass -File \"{powerShellPath}\"",
+						//	RedirectStandardOutput = true,
+						//	RedirectStandardError = true,
+						//	UseShellExecute = false,
+						//	CreateNoWindow = true
+						//};
+
+						//// Start the PowerShell process
+						//using (var powerShellProcess = System.Diagnostics.Process.Start(powerShellStartInfo))
+						//{
+						//	// Read output and error streams
+						//	string powerShellOutput = powerShellProcess.StandardOutput.ReadToEnd();
+						//	string powerShellError = powerShellProcess.StandardError.ReadToEnd();
+
+						//	powerShellProcess.WaitForExit();
+
+						//	// Handle output and error messages
+						//	if (powerShellProcess.ExitCode == 0)
+						//	{
+						//		DA.SetData("Status", "Script executed successfully.");
+						//		// Optionally, log the output
+						//		Console.WriteLine("Output: " + powerShellOutput);
+						//	}
+						//	else
+						//	{
+						//		DA.SetData("Status", "Script execution failed.");
+						//		// Optionally, log the error
+						//		Console.WriteLine("Error: " + powerShellError);
+						//	}
+						//}
+					}
+
+					catch (Exception e)
+					{
+						DA.SetData("Status", $"Failed to execute PowerShell script: {e.Message}");
+						Console.WriteLine($"Exception: {e.Message}");
+					}
+
+					try
+					{
+						_nodeProcess = new Process
+						{
+							StartInfo = new ProcessStartInfo
+							{
+								FileName = "node",
+								Arguments = $"\"{scriptPath}\"",
+								WorkingDirectory = grasshopperLibrariesPath,
+								UseShellExecute = false,
+								RedirectStandardOutput = true,
+								RedirectStandardError = true,
+								CreateNoWindow = true
+							}
+						};
+
+						// Start the process
+						_nodeProcess.Start();
+
+						// Read the output
+						string output = _nodeProcess.StandardOutput.ReadToEnd();
+						string error = _nodeProcess.StandardError.ReadToEnd();
+
+						_nodeProcess.WaitForExit();
+
+						// Check for errors
+						if (_nodeProcess.ExitCode == 0)
+						{
+							DA.SetData("Status", "Node.js server started successfully.");
+						}
+						else
+						{
+							DA.SetData("Status", $"Error starting Node.js server: {error}");
+						}
+					}
+					catch (Exception e)
+					{
+						DA.SetData("Status", $"Failed to start Node.js server: {e.Message}");
+					}
+				}
+				else
+				{
+					DA.SetData("Status", "Node.js server is already running.");
+				}
+			}
+			else
+			{
+				if (_nodeProcess != null && !_nodeProcess.HasExited)
+				{
+					try
+					{
+						_nodeProcess.Kill();
+						_nodeProcess.WaitForExit();
+						_nodeProcess = null;
+						DA.SetData("Status", "Node.js server stopped.");
+					}
+					catch (Exception e)
+					{
+						DA.SetData("Status", $"Failed to stop Node.js server: {e.Message}");
+					}
+				}
+				else
+				{
+					//DA.SetData("Status", "Node.js server is not running.");
+				}
+			}
 
 			// assign run
 			//if (!DA.GetData("Run", ref run) || !run)
@@ -116,37 +274,56 @@ namespace GraphWebsite
 
 			// We should now validate the data and warn the user if invalid data is supplied.
 			// Validity checks
-			if (port > 10000 || port < 0)
-			{
-				AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid port number ");
-				DA.SetData("Status", "Invalid port number");
-				return;
-			}
+
+			//if (port > 10000 || port < 0)
+			//{
+			//	AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid port number ");
+			//	DA.SetData("Status", "Invalid port number");
+			//	return;
+			//}
 
 
-			// We're set to create the website now. To keep the size of the SolveInstance() method small, 
-			// The actual functionality will be in a different method:
+			//// Start the web server if 'run' is true
+			//if (run)
+			//{
+			//	if (_server == null)  // Initialize _server only if it's not already running
+			//	{
+			//		string baseDirectory = PathHelper.GetGrasshopperLibrariesPath();
+			//		LocalWebServer server = new LocalWebServer(baseDirectory);
+			//		server.Start();
 
-			if (open)
-			{
-				try
-				{
-					Process.Start($"http://localhost:{port}");
-				}
+			//		DA.SetData("Status", "Web server is running.");
 
-				catch (Exception e)
-				{
-					DA.SetData("Status", e.Message.ToString());
-				}
-			}
+			//		DA.SetData("Status", $"Base directory: {baseDirectory}");
+
+			//	}
+			//	else
+			//	{
+			//		DA.SetData("Status", "Web server is already running.");
+			//	}
+			//}
+			//else
+			//{
+			//	// Only try to stop the server if it's been started
+			//	if (_server != null)
+			//	{
+			//		_server.Stop();
+			//		_server = null;  // Set _server to null after stopping
+			//		DA.SetData("Status", "Plugin stopped and web server shut down.");
+			//	}
+			//	else
+			//	{
+			//		DA.SetData("Status", "Web server is not running.");
+			//	}
 
 
-			//RunScript(port, run, listener);
-			//DA.SetData("Status", currentStatus);
+			//	//RunScript(port, run, listener);
+			//	//DA.SetData("Status", currentStatus);
 
 
-			// Finally assign the spiral to the output parameter.
-			//DA.SetData(0, spiral);
+			//	// Finally assign the spiral to the output parameter.
+			//	//DA.SetData(0, spiral);
+			//}
 		}
 
 		//public void RunScript(int port, bool run, HttpListener listener)
