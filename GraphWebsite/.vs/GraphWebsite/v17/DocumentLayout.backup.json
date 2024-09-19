@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\graphwebsitecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:graphwebsitecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GraphWebsiteComponent.cs",
+              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphWebsiteComponent.cs",
+              "RelativeDocumentMoniker": "GraphWebsiteComponent.cs",
+              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphWebsiteComponent.cs",
+              "RelativeToolTip": "GraphWebsiteComponent.cs",
+              "ViewState": "AgIAABQBAAAAAAAAAAAAACsBAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T09:59:10.623Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

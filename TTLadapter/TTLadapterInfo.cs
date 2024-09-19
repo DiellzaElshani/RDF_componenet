@@ -3,11 +3,11 @@ using Grasshopper.Kernel;
 using System;
 using System.Drawing;
 
-namespace TTLadapter
+namespace TTLAdapter
 {
-	public class TTLadapterInfo : GH_AssemblyInfo
+	public class TTLAdapterInfo : GH_AssemblyInfo
 	{
-		public override string Name => "TTLadapter";
+		public override string Name => "TTLAdapter";
 
 		//Return a 24x24 pixel bitmap to represent this GHA library.
 		public override Bitmap Icon => null;

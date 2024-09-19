@@ -12,7 +12,7 @@ using System.Net.Http;
 using System.IO;
 using System.Net.Mime;
 
-namespace TTLadapter
+namespace TTLAdapter
 {
 
 //████████╗████████╗██╗                                    
@@ -30,13 +30,13 @@ namespace TTLadapter
 //╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝        ╚═╝   ╚══════╝╚═╝  ╚═╝
                                                          
                                                                                                          
-	public class TTLadapterComponent : GH_Component
+	public class TTLAdapterComponent : GH_Component
 	{
 
-		public TTLadapterComponent()
+		public TTLAdapterComponent()
 		  : base("TTLadapter", "TTLadapt",
 			"Send RDF as TTL data from Grasshopper to a web application.",
-			"BHoM", "TTLadapter")
+			"BHoM", "RDF")
 		{
 		}
 
