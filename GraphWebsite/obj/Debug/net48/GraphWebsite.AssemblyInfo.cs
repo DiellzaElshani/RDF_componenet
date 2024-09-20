@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Description of Graph_Website")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+e06eff5bd0c20595b577030d03458994a8af8e93")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+4290e98fe191248334933022e1050cdacdc3651d")]
 [assembly: System.Reflection.AssemblyProductAttribute("GraphWebsite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GraphWebsite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

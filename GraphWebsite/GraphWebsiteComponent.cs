@@ -4,6 +4,7 @@ using Amazon.ElasticLoadBalancing.Model;
 using Amazon.Runtime.Internal;
 using Grasshopper;
 using Grasshopper.Kernel;
+using HttpServerLite;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
@@ -35,8 +36,9 @@ namespace GraphWebsite
 
 	public class GraphWebsiteComponent : GH_Component
 	{
-		private LocalWebServer _server;
+		//private LocalWebServer _server;
 		private Process _nodeProcess;
+		private HttpServerLiteProgram _httpServerLite;
 
 		/// <summary>
 		/// Each implementation of GH_Component must provide a public 
@@ -61,10 +63,12 @@ namespace GraphWebsite
 
 			// open website
 			pManager.AddBooleanParameter("Open", "Open", "Open website in default browser with defined localhost port number", GH_ParamAccess.item, false);
-			// run button
-			pManager.AddBooleanParameter("Run", "Run", "If true, start running the server of graph website on localhost at default webbrowser.", GH_ParamAccess.item, false);
-			;           // localhost port
-						//pManager.AddIntegerParameter("Port", "Port", "Define port of http://localhost:", GH_ParamAccess.item, 8000);
+			// run nodejs
+			pManager.AddBooleanParameter("NodeJs", "NodeJs", "If true, start running the server of graph website on localhost at default webbrowser.", GH_ParamAccess.item, false);
+			// run HttpServerLite
+			pManager.AddBooleanParameter("HttpServerLite", "HttpServerLite", "If true, start running the server of graph website on localhost at default webbrowser.", GH_ParamAccess.item, false);
+			// localhost port
+			//pManager.AddIntegerParameter("Port", "Port", "Define port of http://localhost:", GH_ParamAccess.item, 8000);
 
 
 			// If you want to change properties of certain parameters, 
@@ -96,8 +100,10 @@ namespace GraphWebsite
 			// We'll start by declaring variables and assigning them starting values.
 
 			bool openBrowser = false;
-			bool runServer = false;
-			int port = 8080;
+			bool runNodeJs = false;
+			bool runHttpServerLite = false;
+			int port = 9000;
+			string nginxServer = "http://ac497e68-aff6-453b-a07a-4a321b3a31c5.ma.bw-cloud-instance.org/";
 
 			// Get the Grasshopper libraries path
 			string grasshopperLibrariesPath = PathHelper.GetGrasshopperLibrariesPath();
@@ -114,8 +120,11 @@ namespace GraphWebsite
 			// assign open browser
 			if (!DA.GetData("Open", ref openBrowser)) return;
 
-			// assign run server
-			if (!DA.GetData("Run", ref runServer)) return;
+			// assign run node js server
+			if (!DA.GetData("NodeJs", ref runNodeJs)) return;
+
+			// assign run localhost server
+			if (!DA.GetData("HttpServerLite", ref runHttpServerLite)) return;
 
 
 			// We're set to create the website now. To keep the size of the SolveInstance() method small, 
@@ -127,7 +136,7 @@ namespace GraphWebsite
 				try
 				{
 					Process.Start($"http://localhost:{port}");
-					Process.Start("http://localhost:3001");
+					Process.Start(nginxServer);
 					//DA.SetData("Status", $"powerShellPath: {powerShellPath}");
 				}
 				catch (Exception e)
@@ -137,8 +146,40 @@ namespace GraphWebsite
 				}
 			}
 
+			// Start or stop the HttpServerLite server based on input
+			if (runHttpServerLite)
+			{
+				// Ensure server instance exists
+				if (_httpServerLite == null) _httpServerLite = new HttpServerLiteProgram(); 
+
+				try
+				{
+					_httpServerLite.StartServer(port);
+					DA.SetData(0, $"HttpServerLite started at http://localhost:{port}");
+				}
+				catch (Exception ex)
+				{
+					DA.SetData(0, $"Error starting server: {ex.Message}");
+				}
+			}
+			else
+			{
+				if (_httpServerLite != null)
+				{
+					try
+					{
+						_httpServerLite.StopServer();
+						DA.SetData(0, "HttpServerLite stopped.");
+					}
+					catch (Exception ex)
+					{
+						DA.SetData(0, $"Error stopping server: {ex.Message}");
+					}
+				}
+			}
+
 			// Start the web server if 'run' is true
-			if (runServer)
+			if (runNodeJs)
 			{
 				if (_nodeProcess == null || _nodeProcess.HasExited)
 				{
@@ -256,11 +297,15 @@ namespace GraphWebsite
 						DA.SetData("Status", $"Failed to stop Node.js server: {e.Message}");
 					}
 				}
-				else
-				{
-					//DA.SetData("Status", "Node.js server is not running.");
-				}
 			}
+		}
+
+
+
+
+			// Start the web server if 'run' is true
+			//if (runNodeJs)
+			//{
 
 			// assign run
 			//if (!DA.GetData("Run", ref run) || !run)
@@ -324,142 +369,142 @@ namespace GraphWebsite
 			//	// Finally assign the spiral to the output parameter.
 			//	//DA.SetData(0, spiral);
 			//}
-		}
+			//}
 
-		//public void RunScript(int port, bool run, HttpListener listener)
-		//{
-		//	// Get the current directory
-		//	string currentDirectory = System.IO.Directory.GetCurrentDirectory();
+			//public void RunScript(int port, bool run, HttpListener listener)
+			//{
+			//	// Get the current directory
+			//	string currentDirectory = System.IO.Directory.GetCurrentDirectory();
 
-		//	// Directory of the graph website
-		//	string folderPath = Path.Combine(currentDirectory, "Website");
+			//	// Directory of the graph website
+			//	string folderPath = Path.Combine(currentDirectory, "Website");
 
-		//	if (!Directory.Exists(folderPath))
-		//	{
-		//		string currentStatus = ($"Folder does not exist: {folderPath}");
-		//		return;
-		//	}
-		//}
+			//	if (!Directory.Exists(folderPath))
+			//	{
+			//		string currentStatus = ($"Folder does not exist: {folderPath}");
+			//		return;
+			//	}
+			//}
 
-		//	if (!run)
-		//	{
-		//		run = true;
+			//	if (!run)
+			//	{
+			//		run = true;
 
-		//		// Run the server in a new thread
-		//		Thread serverThread = new Thread(() => StartHttpServer(port, folderPath));
-		//		serverThread.IsBackground = true;
-		//		serverThread.Start();
+			//		// Run the server in a new thread
+			//		Thread serverThread = new Thread(() => StartHttpServer(port, folderPath));
+			//		serverThread.IsBackground = true;
+			//		serverThread.Start();
 
-		//		// Open the default web browser and navigate to localhost
-		//		Process.Start(new ProcessStartInfo("http://localhost:" + port)
-		//		{
-		//			UseShellExecute = true
-		//		});
-		//	}
-		//	else
-		//	{
-		//		string currentStatus = ($"Server already running at: http://localhost:{port}");
-		//	}
-		//}
+			//		// Open the default web browser and navigate to localhost
+			//		Process.Start(new ProcessStartInfo("http://localhost:" + port)
+			//		{
+			//			UseShellExecute = true
+			//		});
+			//	}
+			//	else
+			//	{
+			//		string currentStatus = ($"Server already running at: http://localhost:{port}");
+			//	}
+			//}
 
-		//void StartHttpServer(int port, string folderPath, HttpListener listener)
-		//{
-		//	listener = new HttpListener();
-		//	listener.Prefixes.Add($"http://localhost:{port}/");
-		//	listener.Start();
-		//	//Print($"Listening at: http://localhost:{port}/");
-
-
-		//	while (serverRunning)
-		//	{
-		//		try
-		//		{
-		//			// Wait for an incoming request
-		//			HttpListenerContext context = listener.GetContext();
-		//			HttpListenerRequest request = context.Request;
-		//			HttpListenerResponse response = context.Response;
-
-		//			// Serve files based on the request URL
-		//			string urlPath = request.Url.LocalPath.TrimStart('/');
-		//			string filePath = Path.Combine(folderPath, urlPath);
-
-		//			if (string.IsNullOrEmpty(urlPath)) // If no specific file requested, serve index.html
-		//			{
-		//				filePath = Path.Combine(folderPath, "index.html");
-		//			}
-
-		//			if (File.Exists(filePath))
-		//			{
-		//				string mimeType = GetMimeType(filePath);
-		//				byte[] buffer = File.ReadAllBytes(filePath);
-		//				response.ContentType = mimeType;
-		//				response.ContentLength64 = buffer.Length;
-		//				response.OutputStream.Write(buffer, 0, buffer.Length);
-		//			}
-		//			else
-		//			{
-		//				// File not found, return 404
-		//				response.StatusCode = (int)HttpStatusCode.NotFound;
-		//				byte[] buffer = Encoding.UTF8.GetBytes("404 - File not found");
-		//				response.ContentLength64 = buffer.Length;
-		//				response.OutputStream.Write(buffer, 0, buffer.Length);
-		//			}
-
-		//			response.OutputStream.Close();
-		//		}
-		//		catch (Exception ex)
-		//		{
-		//			("Error: " + ex.Message);
-		//		}
-		//	}
-		//}
-
-		//// Function to map file extensions to MIME types
-		//string GetMimeType(string filePath)
-		//{
-		//	string extension = Path.GetExtension(filePath).ToLower();
-
-		//	switch (extension)
-		//	{
-		//		case ".html":
-		//		case ".htm":
-		//			return "text/html";
-		//		case ".js":
-		//			return "application/javascript";
-		//		case ".css":
-		//			return "text/css";
-		//		case ".png":
-		//			return "image/png";
-		//		case ".jpg":
-		//		case ".jpeg":
-		//			return "image/jpeg";
-		//		case ".gif":
-		//			return "image/gif";
-		//		case ".svg":
-		//			return "image/svg+xml";
-		//		default:
-		//			return "application/octet-stream"; // Default binary type for unknown extensions
-		//	}
-		//}
-
-		//void StopHttpServer()
-		//{
-		//	if (listener != null && listener.IsListening)
-		//	{
-		//		listener.Stop();
-		//		listener.Close();
-
-		//		string currentStatus = ("Server stopped.");
-		//	}
-		//}
+			//void StartHttpServer(int port, string folderPath, HttpListener listener)
+			//{
+			//	listener = new HttpListener();
+			//	listener.Prefixes.Add($"http://localhost:{port}/");
+			//	listener.Start();
+			//	//Print($"Listening at: http://localhost:{port}/");
 
 
-		/// <summary>
-		/// The Exposure property controls where in the panel a component icon 
-		/// will appear. There are seven possible locations (primary to septenary), 
-		/// each of which can be combined with the GH_Exposure.obscure flag, which 
-		/// ensures the component will only be visible on panel dropdowns.
-		/// </summary>
+			//	while (serverRunning)
+			//	{
+			//		try
+			//		{
+			//			// Wait for an incoming request
+			//			HttpListenerContext context = listener.GetContext();
+			//			HttpListenerRequest request = context.Request;
+			//			HttpListenerResponse response = context.Response;
+
+			//			// Serve files based on the request URL
+			//			string urlPath = request.Url.LocalPath.TrimStart('/');
+			//			string filePath = Path.Combine(folderPath, urlPath);
+
+			//			if (string.IsNullOrEmpty(urlPath)) // If no specific file requested, serve index.html
+			//			{
+			//				filePath = Path.Combine(folderPath, "index.html");
+			//			}
+
+			//			if (File.Exists(filePath))
+			//			{
+			//				string mimeType = GetMimeType(filePath);
+			//				byte[] buffer = File.ReadAllBytes(filePath);
+			//				response.ContentType = mimeType;
+			//				response.ContentLength64 = buffer.Length;
+			//				response.OutputStream.Write(buffer, 0, buffer.Length);
+			//			}
+			//			else
+			//			{
+			//				// File not found, return 404
+			//				response.StatusCode = (int)HttpStatusCode.NotFound;
+			//				byte[] buffer = Encoding.UTF8.GetBytes("404 - File not found");
+			//				response.ContentLength64 = buffer.Length;
+			//				response.OutputStream.Write(buffer, 0, buffer.Length);
+			//			}
+
+			//			response.OutputStream.Close();
+			//		}
+			//		catch (Exception ex)
+			//		{
+			//			("Error: " + ex.Message);
+			//		}
+			//	}
+			//}
+
+			//// Function to map file extensions to MIME types
+			//string GetMimeType(string filePath)
+			//{
+			//	string extension = Path.GetExtension(filePath).ToLower();
+
+			//	switch (extension)
+			//	{
+			//		case ".html":
+			//		case ".htm":
+			//			return "text/html";
+			//		case ".js":
+			//			return "application/javascript";
+			//		case ".css":
+			//			return "text/css";
+			//		case ".png":
+			//			return "image/png";
+			//		case ".jpg":
+			//		case ".jpeg":
+			//			return "image/jpeg";
+			//		case ".gif":
+			//			return "image/gif";
+			//		case ".svg":
+			//			return "image/svg+xml";
+			//		default:
+			//			return "application/octet-stream"; // Default binary type for unknown extensions
+			//	}
+			//}
+
+			//void StopHttpServer()
+			//{
+			//	if (listener != null && listener.IsListening)
+			//	{
+			//		listener.Stop();
+			//		listener.Close();
+
+			//		string currentStatus = ("Server stopped.");
+			//	}
+			//}
+
+
+			/// <summary>
+			/// The Exposure property controls where in the panel a component icon 
+			/// will appear. There are seven possible locations (primary to septenary), 
+			/// each of which can be combined with the GH_Exposure.obscure flag, which 
+			/// ensures the component will only be visible on panel dropdowns.
+			/// </summary>
 		public override GH_Exposure Exposure => GH_Exposure.primary;
 
 		/// <summary>

@@ -58,6 +58,10 @@
               "include": "Compile, Build",
               "target": "Package",
               "version": "[7.13.21348.13001, )"
+            },
+            "HttpServerLite": {
+              "target": "Package",
+              "version": "[2.1.5, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\httpserverlite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:httpserverlite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\graphwebsitecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:graphwebsitecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +46,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "HttpServerLite.cs",
+              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\HttpServerLite.cs",
+              "RelativeDocumentMoniker": "HttpServerLite.cs",
+              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\HttpServerLite.cs",
+              "RelativeToolTip": "HttpServerLite.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T11:54:27.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CommandLine.cs",
               "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\CommandLine.cs",
               "RelativeDocumentMoniker": "CommandLine.cs",
@@ -50,12 +67,11 @@
               "RelativeToolTip": "CommandLine.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-19T15:05:42.632Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-19T15:05:42.632Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PathHelper.cs",
               "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\PathHelper.cs",
               "RelativeDocumentMoniker": "PathHelper.cs",
@@ -63,12 +79,11 @@
               "RelativeToolTip": "PathHelper.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-19T15:03:50.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-19T15:03:50.898Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HttpListener.cs",
               "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\HttpListener.cs",
               "RelativeDocumentMoniker": "HttpListener.cs",
@@ -76,18 +91,17 @@
               "RelativeToolTip": "HttpListener.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAACEAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-19T12:44:37.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-19T12:44:37.569Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GraphWebsiteComponent.cs",
               "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphWebsiteComponent.cs",
               "RelativeDocumentMoniker": "GraphWebsiteComponent.cs",
               "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphWebsiteComponent.cs",
               "RelativeToolTip": "GraphWebsiteComponent.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAAAH4AAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAAAJkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-18T09:59:10.623Z",
               "EditorCaption": ""

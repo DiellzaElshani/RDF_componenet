@@ -5,57 +5,45 @@ $baseDirectory = [System.Environment]::GetFolderPath('UserProfile')
 $relativePath = "AppData\Roaming\Grasshopper\Libraries\GraphWebsite"
 $workingDirectory = Join-Path -Path $baseDirectory -ChildPath $relativePath
 
-# Install fnm (Fast Node Manager)
+# Step 1: Install fnm (Fast Node Manager) if not installed
 Write-Output "Installing fnm (Fast Node Manager)..."
 winget install Schniz.fnm
 
-# Configure fnm environment
+# Step 2: Configure fnm environment
 Write-Output "Configuring fnm environment..."
 fnm env --use-on-cd | Out-String | Invoke-Expression
 
-# Download and install Node.js
+# Step 3: Install Node.js (version 22 or specify the version you need)
 Write-Output "Downloading and installing Node.js..."
 fnm use --install-if-missing 22
 
-# Verify the right Node.js version is in the environment
+# Step 4: Verify the Node.js and npm versions
 $nodeVersion = & node -v
-Write-Output "Node.js version: $nodeVersion"
-
-# Verify the right npm version is in the environment
 $npmVersion = & npm -v
+Write-Output "Node.js version: $nodeVersion"
 Write-Output "npm version: $npmVersion"
 
-# Check if npm is installed
-if (-not $npmVersion) {
-    Write-Output "npm is not installed. Installing npm..."
-    # Use fnm to install the correct npm version for the Node.js version
-    fnm use --install-if-missing 22
-    $npmVersion = & npm -v
-    Write-Output "npm version after installation: $npmVersion"
-} else {
-    Write-Output "npm is already installed."
-}
-
-# Navigate to the directory containing package.json
+# Step 5: Navigate to the directory containing the package.json
 Write-Output "Navigating to the directory with package.json..."
 Set-Location -Path $workingDirectory
 
-# Check if package.json exists
+# Step 6: Check if package.json exists and install dependencies
 if (Test-Path "package.json") {
     Write-Output "package.json found. Installing dependencies..."
-    # Install dependencies
+
+    # Install dependencies (such as express)
     npm install
 
-    # Verify node_modules directory creation
+    # Verify if node_modules is created
     if (Test-Path "node_modules") {
-        Write-Output "node_modules directory created successfully."
-    } else {
-        Write-Output "Failed to create node_modules directory."
-    }
+        Write-Output "Dependencies installed successfully."
 
-    # Optionally start the server
-    Write-Output "Starting the server..."
-    npm start
+        # Step 7: Start the web server using Node.js
+        Write-Output "Starting the server..."
+        npm start
+    } else {
+        Write-Output "Failed to install dependencies. 'node_modules' directory not found."
+    }
 } else {
-    Write-Output "package.json not found in the directory."
+    Write-Output "Error: package.json not found. Please ensure the file exists in $workingDirectory."
 }
