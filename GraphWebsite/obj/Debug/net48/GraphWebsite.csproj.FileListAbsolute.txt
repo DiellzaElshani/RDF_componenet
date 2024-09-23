@@ -42,3 +42,4 @@ C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\System.ValueTuple.dll
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\Timestamps.dll
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\UrlMatcher.dll
+C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\obj\Debug\net48\GraphWebsite.GraphDB_WindowsForm.Login.resources

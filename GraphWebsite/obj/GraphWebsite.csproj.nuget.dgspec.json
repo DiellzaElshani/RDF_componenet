@@ -54,6 +54,22 @@
               "target": "Package",
               "version": "[2.3.55.2, )"
             },
+            "AutoBogus": {
+              "target": "Package",
+              "version": "[2.13.1, )"
+            },
+            "CompareNETObjects": {
+              "target": "Package",
+              "version": "[4.78.0, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.9.0, )"
+            },
+            "Flurl": {
+              "target": "Package",
+              "version": "[3.0.7, )"
+            },
             "Grasshopper": {
               "include": "Compile, Build",
               "target": "Package",
@@ -62,6 +78,110 @@
             "HttpServerLite": {
               "target": "Package",
               "version": "[2.1.5, )"
+            },
+            "Microsoft.AspNetCore.Components.Analyzers": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.CSharp": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Microsoft.CodeAnalysis.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.3.4, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "Microsoft.CodeAnalysis.NetAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers": {
+              "target": "Package",
+              "version": "[0.4.421302, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Primitives": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "Microsoft.Web.WebView2": {
+              "target": "Package",
+              "version": "[1.0.2739.15, )"
+            },
+            "NETStandard.Library": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.1, )"
+            },
+            "NUnit.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "PCLCrypto": {
+              "target": "Package",
+              "version": "[2.0.147, )"
+            },
+            "Shouldly": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "System.Data.DataSetExtensions": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.Security.Cryptography.Algorithms": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "WebDriverManager": {
+              "target": "Package",
+              "version": "[2.17.4, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "dotNetRdf": {
+              "target": "Package",
+              "version": "[2.7.5, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
