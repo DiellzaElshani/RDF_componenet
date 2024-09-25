@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\tt_adapter\\push.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:tt_adapter\\push.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\tt_adapter\\ttladapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:tt_adapter\\ttladapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\tt_adapter\\pull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:tt_adapter\\pull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\graphwebsitecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:graphwebsitecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\server\\watsonwebserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:server\\watsonwebserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,51 +31,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TTLAdapter.cs",
-              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\TT_Adapter\\TTLAdapter.cs",
-              "RelativeDocumentMoniker": "TT_Adapter\\TTLAdapter.cs",
-              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\TT_Adapter\\TTLAdapter.cs",
-              "RelativeToolTip": "TT_Adapter\\TTLAdapter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Title": "WatsonWebserver.cs",
+              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\Server\\WatsonWebserver.cs",
+              "RelativeDocumentMoniker": "Server\\WatsonWebserver.cs",
+              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\Server\\WatsonWebserver.cs",
+              "RelativeToolTip": "Server\\WatsonWebserver.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAPwBAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T22:00:20.337Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Pull.cs",
-              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\TT_Adapter\\Pull.cs",
-              "RelativeDocumentMoniker": "TT_Adapter\\Pull.cs",
-              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\TT_Adapter\\Pull.cs",
-              "RelativeToolTip": "TT_Adapter\\Pull.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T22:00:18.776Z",
+              "WhenOpened": "2024-09-24T19:13:48.12Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Push.cs",
-              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\TT_Adapter\\Push.cs",
-              "RelativeDocumentMoniker": "TT_Adapter\\Push.cs",
-              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\TT_Adapter\\Push.cs",
-              "RelativeToolTip": "TT_Adapter\\Push.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T21:49:45.709Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "GraphWebsiteComponent.cs",
               "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphWebsiteComponent.cs",
               "RelativeDocumentMoniker": "GraphWebsiteComponent.cs",
               "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphWebsiteComponent.cs",
               "RelativeToolTip": "GraphWebsiteComponent.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAADIAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAFAAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-22T21:40:42.652Z",
               "EditorCaption": ""

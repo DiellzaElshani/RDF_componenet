@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Tw8fSDETHq8=",
+  "dgSpecHash": "GNW6Eko7+Xo=",
   "success": true,
   "projectFilePath": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphWebsite.csproj",
   "expectedPackageFiles": [
@@ -73,10 +73,12 @@
     "C:\\Users\\Markus\\.nuget\\packages\\system.text.json\\8.0.4\\system.text.json.8.0.4.nupkg.sha512",
     "C:\\Users\\Markus\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Markus\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\Markus\\.nuget\\packages\\timestamps\\1.0.2\\timestamps.1.0.2.nupkg.sha512",
-    "C:\\Users\\Markus\\.nuget\\packages\\urlmatcher\\2.0.1\\urlmatcher.2.0.1.nupkg.sha512",
+    "C:\\Users\\Markus\\.nuget\\packages\\timestamps\\1.0.9\\timestamps.1.0.9.nupkg.sha512",
+    "C:\\Users\\Markus\\.nuget\\packages\\urlmatcher\\3.0.0\\urlmatcher.3.0.0.nupkg.sha512",
     "C:\\Users\\Markus\\.nuget\\packages\\validation\\2.2.8\\validation.2.2.8.nupkg.sha512",
     "C:\\Users\\Markus\\.nuget\\packages\\vds.common\\1.10.0\\vds.common.1.10.0.nupkg.sha512",
+    "C:\\Users\\Markus\\.nuget\\packages\\watson\\6.2.2\\watson.6.2.2.nupkg.sha512",
+    "C:\\Users\\Markus\\.nuget\\packages\\watson.core\\6.2.2\\watson.core.6.2.2.nupkg.sha512",
     "C:\\Users\\Markus\\.nuget\\packages\\webdrivermanager\\2.17.4\\webdrivermanager.2.17.4.nupkg.sha512"
   ],
   "logs": []

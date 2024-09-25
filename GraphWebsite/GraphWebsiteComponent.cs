@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using static System.Net.WebRequestMethods;
@@ -36,7 +37,8 @@ namespace GraphWebsite
 
 	public class GraphWebsiteComponent : GH_Component
 	{
-		private HttpServerLiteProgram _httpServerLite;
+		//private HttpServerLiteProgram _httpServerLite;
+		private WatsonWebserverProgramm _watsonWebserver;
 
 		/// <summary>
 		/// Each implementation of GH_Component must provide a public 
@@ -55,15 +57,15 @@ namespace GraphWebsite
 		protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
 		{
 			// Graph db repository
-			pManager.AddTextParameter("GraphDB URL", "URL", "Define URL of the GraphDB repository.", GH_ParamAccess.item, "");
+			pManager.AddTextParameter("GraphDB URL", "URL", "Define URL of the GraphDB repository.", GH_ParamAccess.item, "http://localhost:7200/repositories/BotOntology");
 			// Account name
-			pManager.AddTextParameter("Account", "Account", "Define account name to GraphDB.", GH_ParamAccess.item, "");
+			pManager.AddTextParameter("Account", "Account", "Define account name to GraphDB.", GH_ParamAccess.item, "admin");
 			// Password
-			pManager.AddTextParameter("Password", "PWD", "Define your password to GraphDB.", GH_ParamAccess.item, "");
+			pManager.AddTextParameter("Password", "PWD", "Define your password to GraphDB.", GH_ParamAccess.item, "admin");
 			// Open website in webbrowser
 			pManager.AddBooleanParameter("Open", "Open", "Open website in default browser with defined localhost port number", GH_ParamAccess.item, false);
 			// Run HttpServerLite
-			pManager.AddBooleanParameter("HttpServerLite", "HttpServerLite", "If true, start running the server of graph website on localhost at default webbrowser.", GH_ParamAccess.item, false);
+			pManager.AddBooleanParameter("RunServer", "Run", "If true, start running the server of graph website on localhost at default webbrowser.", GH_ParamAccess.item, false);
 		}
 
 		protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
@@ -80,11 +82,11 @@ namespace GraphWebsite
 		protected override void SolveInstance(IGH_DataAccess DA)
 		{
 			// Initialize variables
-			string graphDBurl = "";
-			string accountName = "";
-			string password = "";
+			string graphDB_url = "";
+			string userAccount = "";
+			string userPassword = "";
 			bool openBrowser = false;
-			bool runHttpServerLite = false;
+			bool runServer = false;
 			int port = 9000;
 
 			/// <summary>
@@ -92,16 +94,41 @@ namespace GraphWebsite
 			/// When data cannot be extracted from a parameter, abort this method.
 			/// <summary>
 			// Assign graphDB url
-			if (!DA.GetData("GraphDB URL", ref graphDBurl)) return;
+			if (!DA.GetData("GraphDB URL", ref graphDB_url)) return;
 			// Assign account name
-			if (!DA.GetData("Account", ref accountName)) return;
+			if (!DA.GetData("Account", ref userAccount)) return;
 			// Assign password
-			if (!DA.GetData("Password", ref password)) return;
+			if (!DA.GetData("Password", ref userPassword)) return;
 			// Assign open browser
 			if (!DA.GetData("Open", ref openBrowser)) return;
 			// Assign run localhost server
-			if (!DA.GetData("HttpServerLite", ref runHttpServerLite)) return;
+			if (!DA.GetData("RunServer", ref runServer)) return;
 
+			/// <summary>
+			/// Access the current working directory.
+			/// Printing file path in GH.
+			/// <summary>
+			// Get the current working directory
+			string rhinoDirectory = Directory.GetCurrentDirectory();
+			string App_Domain = AppDomain.CurrentDomain.BaseDirectory; // Same as Directory.GetCurrentDirectory()
+			// Get the directory of the running component
+			string componentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+			//DA.SetData(0, $"Current Working Directory: {rhinoDirectory} \nRunning Component Directory: {componentDirectory} \nAppDomain Current Directory: {App_Domain}");
+			#region
+			//// Construct the path to the HTML file
+			//string htmlFilePath = Path.Combine(componentDirectory, "Website", "webpage.html");
+
+			//// Check if the HTML file exists
+			//if (!System.IO.File.Exists(htmlFilePath))
+			//{
+			//	DA.SetData(0, $"HTML file not found at: {htmlFilePath}");
+			//	return;
+			//}
+			//else
+			//{
+			//	DA.SetData(0, $"HTML file found at: {htmlFilePath}");
+			//}
+			#endregion
 
 			// Open the website in the browser
 			if (openBrowser)
@@ -118,15 +145,15 @@ namespace GraphWebsite
 			}
 
 			// Start or stop the HttpServerLite server based on input
-			if (runHttpServerLite)
+			if (runServer)
 			{
 				// Ensure server instance exists
-				if (_httpServerLite == null) _httpServerLite = new HttpServerLiteProgram();
+				if (_watsonWebserver == null) _watsonWebserver = new WatsonWebserverProgramm();
 
 				try
 				{
-					_httpServerLite.StartServer(port);
-					DA.SetData(0, $"HttpServerLite started at http://localhost:{port}");
+					_watsonWebserver.StartServer(port, componentDirectory, graphDB_url, userAccount, userPassword);
+					DA.SetData(0, $"Server started at http://localhost:{port}");
 				}
 				catch (Exception ex)
 				{
@@ -135,12 +162,13 @@ namespace GraphWebsite
 			}
 			else
 			{
-				if (_httpServerLite != null)
+				if (_watsonWebserver != null)
 				{
 					try
 					{
-						_httpServerLite.StopServer();
-						DA.SetData(0, "HttpServerLite stopped.");
+						_watsonWebserver.StopServer();
+						_watsonWebserver = null;
+						DA.SetData(0, "Server stopped.");
 					}
 					catch (Exception ex)
 					{
@@ -148,6 +176,38 @@ namespace GraphWebsite
 					}
 				}
 			}
+
+			//if (runServer)
+			//{
+			//	// Ensure server instance exists
+			//	if (_httpServerLite == null) _httpServerLite = new HttpServerLiteProgram();
+
+			//	try 
+			//	{
+			//		_httpServerLite.StartServer(port, graphDB_url, userAccount, userPassword);
+			//		DA.SetData(0, $"HttpServerLite started at http://localhost:{port}");
+			//	}
+			//	catch (Exception ex)
+			//	{
+			//		DA.SetData(0, $"Error starting server: {ex.Message}");
+			//	}
+			//}
+			//else
+			//{
+			//	if (_httpServerLite != null)
+			//	{
+			//		try
+			//		{
+			//			_httpServerLite.StopServer();
+			//			_httpServerLite = null;
+			//			DA.SetData(0, "HttpServerLite stopped.");
+			//		}
+			//		catch (Exception ex)
+			//		{
+			//			DA.SetData(0, $"Error stopping server: {ex.Message}");
+			//		}
+			//	}
+			//}
 		}
 				
 

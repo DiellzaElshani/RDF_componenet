@@ -1259,11 +1259,8 @@
           }
         }
       },
-      "Timestamps/1.0.2": {
+      "Timestamps/1.0.9": {
         "type": "package",
-        "dependencies": {
-          "System.Text.Json": "7.0.2"
-        },
         "compile": {
           "lib/net48/Timestamps.dll": {}
         },
@@ -1278,7 +1275,7 @@
           }
         }
       },
-      "UrlMatcher/2.0.1": {
+      "UrlMatcher/3.0.0": {
         "type": "package",
         "compile": {
           "lib/net48/UrlMatcher.dll": {
@@ -1288,6 +1285,13 @@
         "runtime": {
           "lib/net48/UrlMatcher.dll": {
             "related": ".xml"
+          }
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
           }
         }
       },
@@ -1314,6 +1318,49 @@
         "runtime": {
           "lib/net40-client/VDS.Common.dll": {
             "related": ".pdb;.XML"
+          }
+        }
+      },
+      "Watson/6.2.2": {
+        "type": "package",
+        "dependencies": {
+          "Watson.Core": "6.2.2"
+        },
+        "compile": {
+          "lib/net48/WatsonWebserver.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net48/WatsonWebserver.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Watson.Core/6.2.2": {
+        "type": "package",
+        "dependencies": {
+          "IpMatcher": "1.0.4.4",
+          "RegexMatcher": "1.0.8",
+          "System.Text.Json": "8.0.4",
+          "Timestamps": "1.0.9",
+          "UrlMatcher": "3.0.0"
+        },
+        "compile": {
+          "lib/net48/WatsonWebserver.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net48/WatsonWebserver.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
           }
         }
       },
@@ -5003,61 +5050,63 @@
         "version.txt"
       ]
     },
-    "Timestamps/1.0.2": {
-      "sha512": "6NFYNxz+rzed/+PBJhXLob5Tom4BXmttsPZW7/rTBEwUhVg89hfJ4mBwY+hpIQpgUBnxIJXd8HLsCePre85lVQ==",
+    "Timestamps/1.0.9": {
+      "sha512": "xdCVp+T4VFXOT+Ube2Cz527fnFXFUxQK24uPMGcCmICIpIcGCXPtI7vKLnWsJ6Nfc1B92tNBK9e/I8NDq2ee6g==",
       "type": "package",
-      "path": "timestamps/1.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "content/Assets/logo.ico",
-        "contentFiles/any/net461/Assets/logo.ico",
-        "contentFiles/any/net462/Assets/logo.ico",
-        "contentFiles/any/net48/Assets/logo.ico",
-        "contentFiles/any/net5.0/Assets/logo.ico",
-        "contentFiles/any/net6.0/Assets/logo.ico",
-        "contentFiles/any/net7.0/Assets/logo.ico",
-        "contentFiles/any/netcoreapp3.1/Assets/logo.ico",
-        "contentFiles/any/netstandard2.1/Assets/logo.ico",
-        "lib/net461/Timestamps.dll",
-        "lib/net462/Timestamps.dll",
-        "lib/net48/Timestamps.dll",
-        "lib/net5.0/Timestamps.dll",
-        "lib/net6.0/Timestamps.dll",
-        "lib/net7.0/Timestamps.dll",
-        "lib/netcoreapp3.1/Timestamps.dll",
-        "lib/netstandard2.1/Timestamps.dll",
-        "logo.png",
-        "timestamps.1.0.2.nupkg.sha512",
-        "timestamps.nuspec"
-      ]
-    },
-    "UrlMatcher/2.0.1": {
-      "sha512": "oXdRZowgfZlK5u/IxeeqN8ERnc9wOiAMeW6sqptdXsoNeVTRHVQOy5LNXADSFDn1MrkAh9Z1VQ9ET2puFrJBHg==",
-      "type": "package",
-      "path": "urlmatcher/2.0.1",
+      "path": "timestamps/1.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
+        "README.md",
+        "content/Assets/logo.ico",
+        "contentFiles/any/net462/Assets/logo.ico",
+        "contentFiles/any/net48/Assets/logo.ico",
+        "contentFiles/any/net6.0/Assets/logo.ico",
+        "contentFiles/any/net7.0/Assets/logo.ico",
+        "contentFiles/any/net8.0/Assets/logo.ico",
+        "contentFiles/any/netstandard2.1/Assets/logo.ico",
+        "lib/net462/Timestamps.dll",
+        "lib/net48/Timestamps.dll",
+        "lib/net6.0/Timestamps.dll",
+        "lib/net7.0/Timestamps.dll",
+        "lib/net8.0/Timestamps.dll",
+        "lib/netstandard2.1/Timestamps.dll",
+        "logo.png",
+        "timestamps.1.0.9.nupkg.sha512",
+        "timestamps.nuspec"
+      ]
+    },
+    "UrlMatcher/3.0.0": {
+      "sha512": "IavFDKxhcg5ehi3baGEejxnZoj4bqfkDnoMxTV+6Y4WHVxW8wgxTzdSl9q5WSMi366LG0amDfOxaUJxuHawNLw==",
+      "type": "package",
+      "path": "urlmatcher/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "content/assets/icon.ico",
+        "contentFiles/any/net462/assets/icon.ico",
+        "contentFiles/any/net48/assets/icon.ico",
+        "contentFiles/any/net6.0/assets/icon.ico",
+        "contentFiles/any/net7.0/assets/icon.ico",
+        "contentFiles/any/net8.0/assets/icon.ico",
+        "contentFiles/any/netstandard2.1/assets/icon.ico",
         "icon.png",
         "lib/net462/UrlMatcher.dll",
         "lib/net462/UrlMatcher.xml",
         "lib/net48/UrlMatcher.dll",
         "lib/net48/UrlMatcher.xml",
-        "lib/net5.0/UrlMatcher.dll",
-        "lib/net5.0/UrlMatcher.xml",
         "lib/net6.0/UrlMatcher.dll",
         "lib/net6.0/UrlMatcher.xml",
         "lib/net7.0/UrlMatcher.dll",
         "lib/net7.0/UrlMatcher.xml",
-        "lib/netcoreapp3.1/UrlMatcher.dll",
-        "lib/netcoreapp3.1/UrlMatcher.xml",
-        "lib/netstandard2.0/UrlMatcher.dll",
-        "lib/netstandard2.0/UrlMatcher.xml",
+        "lib/net8.0/UrlMatcher.dll",
+        "lib/net8.0/UrlMatcher.xml",
         "lib/netstandard2.1/UrlMatcher.dll",
         "lib/netstandard2.1/UrlMatcher.xml",
-        "urlmatcher.2.0.1.nupkg.sha512",
+        "urlmatcher.3.0.0.nupkg.sha512",
         "urlmatcher.nuspec"
       ]
     },
@@ -5115,6 +5164,64 @@
         "vds.common.nuspec"
       ]
     },
+    "Watson/6.2.2": {
+      "sha512": "T01u+yYEk9ViyOSlD6KXwqKuCJLkg9j76QbHp6A/prTgNHtbMqEikyzv8hRs/ZVhlmez0VUid/R2bcFTcOX5Mg==",
+      "type": "package",
+      "path": "watson/6.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net462/WatsonWebserver.dll",
+        "lib/net462/WatsonWebserver.xml",
+        "lib/net48/WatsonWebserver.dll",
+        "lib/net48/WatsonWebserver.xml",
+        "lib/net6.0/WatsonWebserver.dll",
+        "lib/net6.0/WatsonWebserver.xml",
+        "lib/net7.0/WatsonWebserver.dll",
+        "lib/net7.0/WatsonWebserver.xml",
+        "lib/net8.0/WatsonWebserver.dll",
+        "lib/net8.0/WatsonWebserver.xml",
+        "lib/netstandard2.1/WatsonWebserver.dll",
+        "lib/netstandard2.1/WatsonWebserver.xml",
+        "watson.6.2.2.nupkg.sha512",
+        "watson.nuspec",
+        "watson.png"
+      ]
+    },
+    "Watson.Core/6.2.2": {
+      "sha512": "lqdT+foblghBKLXuvXBFLJmO9J0TkPCBiQFH4xg4txFM7osm1jvF2IzYjor6w1NL+kNDhvlCRkBNaPSSxfJO/A==",
+      "type": "package",
+      "path": "watson.core/6.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "content/Assets/watson.ico",
+        "contentFiles/any/net462/Assets/watson.ico",
+        "contentFiles/any/net48/Assets/watson.ico",
+        "contentFiles/any/net6.0/Assets/watson.ico",
+        "contentFiles/any/net7.0/Assets/watson.ico",
+        "contentFiles/any/net8.0/Assets/watson.ico",
+        "contentFiles/any/netstandard2.1/Assets/watson.ico",
+        "lib/net462/WatsonWebserver.Core.dll",
+        "lib/net462/WatsonWebserver.Core.xml",
+        "lib/net48/WatsonWebserver.Core.dll",
+        "lib/net48/WatsonWebserver.Core.xml",
+        "lib/net6.0/WatsonWebserver.Core.dll",
+        "lib/net6.0/WatsonWebserver.Core.xml",
+        "lib/net7.0/WatsonWebserver.Core.dll",
+        "lib/net7.0/WatsonWebserver.Core.xml",
+        "lib/net8.0/WatsonWebserver.Core.dll",
+        "lib/netstandard2.1/WatsonWebserver.Core.dll",
+        "lib/netstandard2.1/WatsonWebserver.Core.xml",
+        "watson.core.6.2.2.nupkg.sha512",
+        "watson.core.nuspec",
+        "watson.png"
+      ]
+    },
     "WebDriverManager/2.17.4": {
       "sha512": "Gseye/0QFH/njpNAhpsWZwa1zsB6iG/TxoANZkAJBMZ2hjpm/y3HyLop7JHXKZ3joHhgMFfJEYLbUmUS+jhK6A==",
       "type": "package",
@@ -5161,6 +5268,7 @@
       "System.Management >= 8.0.0",
       "System.Security.Cryptography.Algorithms >= 4.3.1",
       "System.Text.Json >= 8.0.4",
+      "Watson >= 6.2.2",
       "WebDriverManager >= 2.17.4",
       "coverlet.collector >= 3.1.2",
       "dotNetRdf >= 2.7.5"
@@ -5334,6 +5442,10 @@
           "System.Text.Json": {
             "target": "Package",
             "version": "[8.0.4, )"
+          },
+          "Watson": {
+            "target": "Package",
+            "version": "[6.2.2, )"
           },
           "WebDriverManager": {
             "target": "Package",

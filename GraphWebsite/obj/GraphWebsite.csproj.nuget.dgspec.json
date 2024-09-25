@@ -169,6 +169,10 @@
               "target": "Package",
               "version": "[8.0.4, )"
             },
+            "Watson": {
+              "target": "Package",
+              "version": "[6.2.2, )"
+            },
             "WebDriverManager": {
               "target": "Package",
               "version": "[2.17.4, )"
