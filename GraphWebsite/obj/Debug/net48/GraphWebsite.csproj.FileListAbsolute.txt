@@ -174,8 +174,6 @@ C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\Dimensional_oM.dll
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\Geometry_Engine.dll
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\Geometry_oM.dll
-C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\GraphDBAdapter_6_0.dll
-C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\GraphDBUI.dll
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\GraphDB_Adapter.dll
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\GraphDB_Engine.dll
 C:\Users\Markus\Documents\Git\GitHub\RDF_componenet\GraphWebsite\bin\Debug\net48\GraphDB_UI_Engine.dll
