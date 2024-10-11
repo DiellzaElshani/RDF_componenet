@@ -3,6 +3,8 @@ using Amazon.ElasticBeanstalk.Model;
 using Amazon.ElasticLoadBalancing.Model;
 using Amazon.Runtime.Internal;
 using BH.Adapter.GraphDB;
+using BH.Engine.Adapters.RDF;
+using GraphDB_WindowsForms;
 using GraphWebsite.Server;
 using Grasshopper;
 using Grasshopper.Kernel;
@@ -14,11 +16,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading;
 using static System.Net.WebRequestMethods;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace GraphWebsite
 {
@@ -42,12 +46,11 @@ namespace GraphWebsite
 	{
 		//private HttpServerLiteProgram _httpServerLite;
 		private WatsonWebserverProgramm _watsonWebserver;
-		private GraphDB.GraphDBAdapter _graphDBAdapter;
+		private WindowsForms.Credentials _windowsForms;
 
-		//private string _GRAPHDB_URL;
-		//private string _USERACCOUNT;
-		//private string _USERPASSWORD; 
-
+		private string _HOSTSERVERADRESS;
+		private string _USERACCOUNT;
+		private string _USERPASSWORD;
 
 
 		/// <summary>
@@ -66,9 +69,12 @@ namespace GraphWebsite
 
 		protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
 		{
-			// Run component
-			pManager.AddBooleanParameter("Run", "Run", "If true, start running the server of GraphWebsite on localhost at default webbrowser with custom GraphDB log-in.", GH_ParamAccess.item, false);
+			// Credentials
+			pManager.AddBooleanParameter("Credentials", "Cred", "If true, enter credentials for the connecting host server in Windows Forms.Username & Password is not obligatory.", GH_ParamAccess.item, false);
+			// Run server of GraphWebsite
+			pManager.AddBooleanParameter("RunGraphWebsite", "RunGW", "If true & existing credentials, start running the server of GraphWebsite on localhost at default web browser.", GH_ParamAccess.item, false);
 
+			#region
 			//// Bhom graph setting
 			//int inputGraphSettins = pManager.AddGenericParameter("GraphSettings", "GS", "Bhom graph settings", GH_ParamAccess.item);
 			//// Convert to RDF
@@ -91,15 +97,18 @@ namespace GraphWebsite
 			//pManager.AddBooleanParameter("Open", "Open", "Open website in default browser with defined localhost port number", GH_ParamAccess.item, false);
 			// Run Server on localhost
 			//pManager.AddBooleanParameter("RunServer", "Run", "If true, start running the server of GraphWebsite on localhost at default webbrowser with custom GraphDB log-in.", GH_ParamAccess.item, false);
+			#endregion
 		}
 
 		protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
 		{
 			// Output status
-			pManager.AddTextParameter("Status", "Status", "Status of localhost server communication.", GH_ParamAccess.item);
+			pManager.AddTextParameter("Status", "Status", "Status of Watson Webserver communication.", GH_ParamAccess.item);
 
+			#region
 			//// Output converted RDF as .ttl
 			//pManager.AddGenericParameter("RDF", "RDF", "Converted Resource Description Framework (RDF).", GH_ParamAccess.item);
+			#endregion
 		}
 
 		/// <summary>
@@ -110,67 +119,129 @@ namespace GraphWebsite
 		protected override void SolveInstance(IGH_DataAccess DA)
 		{
 			// Initialize variables
-			#region
-			// bhom.graph-settings
-			//bool logInGraphDB = false;
-			//bool openBrowser = false;
-			//bool runServer = false;
-			//string graphDB_url = "";
-			//string userPassword = "";
-			#endregion
-
-			bool run = false;
+			bool credentials = false;
+			bool runGraphWebsite = false;
 			int port = 9000;
 
-			string userServerAdress = "";
-			string userAccount = "";
+		
+			// Assign runGraphWebsite
+			if (!DA.GetData("Run", ref credentials)) return;
 
-			#region
-			/// <summary>
-			/// Access the input parameters individually. 
-			/// When data cannot be extracted from a parameter, abort this method.
-			/// <summary>
-			//// Assign log-in graphDB
-			//if (!DA.GetData("Log-in GraphDB", ref logInGraphDB)) return;
-			//// Assign bhom graph settings
-			//if (!DA.GetData("GraphSettings", ref bhomGraphSettings)) return;
-			//// Assign graphDB url
-			//if (!DA.GetData("GraphDB URL", ref graphDB_url)) return;
-			//// Assign account name
-			//if (!DA.GetData("Account", ref userAccount)) return;
-			//// Assign password
-			//if (!DA.GetData("Password", ref userPassword)) return;
-			// Assign open browser
-			//if (!DA.GetData("Open", ref openBrowser)) return;
-			//// Assign run localhost server
-			//if (!DA.GetData("RunServer", ref runServer)) return;
-			#endregion
+			// Assign runGraphWebsite
+			if (!DA.GetData("Run", ref runGraphWebsite)) return;
 
-			// Assign run component
-			if (!DA.GetData("Run", ref run)) return;
 
-			if (run)
+
+
+			// Open Windows Form to get user credentials.
+			if (credentials)
 			{
-				// Initialize GraphDBAdapter
-				_graphDBAdapter = new GraphDB.GraphDBAdapter();
+				_windowsForms = new WindowsForms.Credentials();
 
-				// Open Pop-up window GraphDB log-in
-				string output = _graphDBAdapter.ExecuteGraphDB(userServerAdress = "localhost://7200", userAccount = "admin", true);
-				DA.SetData(0, $"Any GraphDBAdapter output: {output}");
+				var (serverAddress, username, password) = credentials.ExecuteWindowsForms();
+
+				_HOSTSERVERADRESS = serverAddress;
+				_USERACCOUNT = username;
+				_USERPASSWORD = password;
+
+				while (string.IsNullOrEmpty(serverAddress))
+				{
+					AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Server adress is empty.");
+				}
+
+				DA.SetData(0, $"serverAddress: {serverAddress}, username: {username}, password: {password}");
 			}
 
-			/// <summary>
-			/// Access the current working directory.
-			/// Printing file path in GH.
-			/// <summary>
+
+			
+			// Open the website in the browser
+			// Start running the Watson Webserver
+			if (runGraphWebsite && _HOSTSERVERADRESS.IsNullOrEmpty())
+			{
+				// Rhino 8 - opens urls
+				// https://discourse.mcneel.com/t/floating-working-dir-in-rhino8-netcore-process-start/179287
+				SystemExtensions.OpenUrl($"http://localhost:{port}");
+
+
+				// Ensure server instance exists
+				if (_watsonWebserver == null || string.IsNullOrEmpty(_watsonWebserver.ToString()))
+				{
+					_watsonWebserver = new WatsonWebserverProgramm();
+
+					try
+					{
+						_watsonWebserver.StartServer(port, componentDirectory, graphDB_url, userAccount, userPassword);
+						DA.SetData(0, $"Server started at http://localhost:{port}");
+					}
+					catch (Exception ex)
+					{
+						DA.SetData(0, $"Error starting server: {ex.Message}");
+					}
+				}
+			}
+
+			// Stop Server
+			else
+			{
+				if (_watsonWebserver != null)
+				{
+					try
+					{
+						_watsonWebserver.StopServer();
+						DA.SetData(0, "Server stopped.");
+					}
+					catch (Exception ex)
+					{
+						DA.SetData(0, $"Error stopping server: {ex.Message}");
+					}
+				}
+			}
+
+				#region
+				// bhom.graph-settings
+				//bool logInGraphDB = false;
+				//bool openBrowser = false;
+				//bool runServer = false;
+				//string graphDB_url = "";
+				//string userPassword = "";
+
+				//string userServerAdress = "";
+				//string userAccount = "";
+
+				/// <summary>
+				/// Access the input parameters individually. 
+				/// When data cannot be extracted from a parameter, abort this method.
+				/// <summary>
+				//// Assign log-in graphDB
+				//if (!DA.GetData("Log-in GraphDB", ref logInGraphDB)) return;
+				//// Assign bhom graph settings
+				//if (!DA.GetData("GraphSettings", ref bhomGraphSettings)) return;
+				//// Assign graphDB url
+				//if (!DA.GetData("GraphDB URL", ref graphDB_url)) return;
+				//// Assign account name
+				//if (!DA.GetData("Account", ref userAccount)) return;
+				//// Assign password
+				//if (!DA.GetData("Password", ref userPassword)) return;
+				// Assign open browser
+				//if (!DA.GetData("Open", ref openBrowser)) return;
+				//// Assign run localhost server
+				//if (!DA.GetData("RunServer", ref runServer)) return;
+
+
+
+				///// <summary>
+				///// Access the current working directory.
+				///// Printing file path in GH.
+				///// <summary>
 				//// Get the current working directory
 				//string rhinoDirectory = Directory.GetCurrentDirectory();
 				//string App_Domain = AppDomain.CurrentDomain.BaseDirectory; // Same as Directory.GetCurrentDirectory()
 				//// Get the directory of the running component
 				//string componentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 				////DA.SetData(0, $"Current Working Directory: {rhinoDirectory} \nRunning Component Directory: {componentDirectory} \nAppDomain Current Directory: {App_Domain}");
-				#region
-				//// Construct the path to the HTML file
+
+
+				// Construct the path to the HTML file
 				//string htmlFilePath = Path.Combine(componentDirectory, "Website", "webpage.html");
 
 				//// Check if the HTML file exists
@@ -183,14 +254,9 @@ namespace GraphWebsite
 				//{
 				//	DA.SetData(0, $"HTML file found at: {htmlFilePath}");
 				//}
-				#endregion
 
 				//// Open the website in the browser
 				//if (openBrowser)
-				//{
-				//	// Rhino 8 - opens urls
-				//	// https://discourse.mcneel.com/t/floating-working-dir-in-rhino8-netcore-process-start/179287
-				//	SystemExtensions.OpenUrl($"http://localhost:{port}");
 
 				//	// Rhino 7 - only
 				//	//try
@@ -202,43 +268,6 @@ namespace GraphWebsite
 				//	//	DA.SetData("Status", e.Message);
 				//	//	return;
 				//	//}
-				//}
-
-				//// Start or stop the HttpServerLite server based on input
-				//if (runServer)
-				//{
-				//	// Ensure server instance exists
-				//	if (_watsonWebserver == null || string.IsNullOrEmpty(_watsonWebserver.ToString()))
-				//	{
-				//		_watsonWebserver = new WatsonWebserverProgramm();
-
-				//		try
-				//		{
-				//			_watsonWebserver.StartServer(port, componentDirectory, graphDB_url, userAccount, userPassword);
-				//			DA.SetData(0, $"Server started at http://localhost:{port}");
-				//		}
-				//		catch (Exception ex)
-				//		{
-				//			DA.SetData(0, $"Error starting server: {ex.Message}");
-				//		}
-				//	}					
-				//}
-
-				//// Stop Server
-				//else
-				//{
-				//	if (_watsonWebserver != null)
-				//	{
-				//		try
-				//		{	
-				//			_watsonWebserver.StopServer();
-				//			DA.SetData(0, "Server stopped.");
-				//		}
-				//		catch (Exception ex)
-				//		{
-				//			DA.SetData(0, $"Error stopping server: {ex.Message}");
-				//		}
-				//	}
 				//}
 
 				//if (runServer)
@@ -272,8 +301,10 @@ namespace GraphWebsite
 				//		}
 				//	}
 				//}
+				#endregion
+
 		}
-				
+
 
 		/// <summary>
 		/// The Exposure property controls where in the panel a component icon 

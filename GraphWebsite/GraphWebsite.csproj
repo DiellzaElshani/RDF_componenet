@@ -183,6 +183,7 @@
     <Reference Include="Structure_oM">
       <HintPath>..\..\..\..\..\..\..\ProgramData\BHoM\Assemblies\Structure_oM.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="TTL_Adapter">
       <HintPath>..\..\..\..\..\..\..\ProgramData\BHoM\Assemblies\TTL_Adapter.dll</HintPath>
     </Reference>

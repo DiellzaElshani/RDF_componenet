@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\graphwebsitecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:graphwebsitecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\windowsfroms\\credentials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:windowsfroms\\credentials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\graphdb\\graphdbadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:graphdb\\graphdbadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|c:\\users\\markus\\documents\\git\\github\\rdf_componenet\\graphwebsite\\graphwebsitecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DF70298-CDC1-42F6-A415-99C25B226AA4}|GraphWebsite.csproj|solutionrelative:graphwebsitecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,26 +34,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GraphDBAdapter.cs",
-              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphDB\\GraphDBAdapter.cs",
-              "RelativeDocumentMoniker": "GraphDB\\GraphDBAdapter.cs",
-              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphDB\\GraphDBAdapter.cs",
-              "RelativeToolTip": "GraphDB\\GraphDBAdapter.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwD4AAAAZAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Credentials.cs",
+              "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\WindowsFroms\\Credentials.cs",
+              "RelativeDocumentMoniker": "WindowsFroms\\Credentials.cs",
+              "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\WindowsFroms\\Credentials.cs",
+              "RelativeToolTip": "WindowsFroms\\Credentials.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-01T19:16:30.454Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GraphWebsiteComponent.cs",
               "DocumentMoniker": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphWebsiteComponent.cs",
               "RelativeDocumentMoniker": "GraphWebsiteComponent.cs",
               "ToolTip": "C:\\Users\\Markus\\Documents\\Git\\GitHub\\RDF_componenet\\GraphWebsite\\GraphWebsiteComponent.cs",
               "RelativeToolTip": "GraphWebsiteComponent.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAWwJcAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAAAJsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-22T21:40:42.652Z",
               "EditorCaption": ""
