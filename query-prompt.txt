@@ -11,6 +11,6 @@ CONSTRUCT {
 WHERE {
   SERVICE <https://query.wikidata.org/sparql> {
     wd:Q1022 ?prop ?value
-  }
+  }
 }
-LIMIT 10
+LIMIT 10
